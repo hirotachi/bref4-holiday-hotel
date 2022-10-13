@@ -1,40 +1,44 @@
-create table "user"
+create table users
 (
-    id     serial  primary key not null,
-    username varchar(50)  not null,
-    password varchar(250) not null,
-    email    varchar(50)  not null
+    id       serial primary key not null,
+    name     varchar(255)       not null,
+    password varchar(255)       not null,
+    email    varchar(255)       not null,
+    role     integer default 1  not null
 );
 
 
 
-create table room
-(
-    id     serial  primary key,
-    type   roomtype                                               not null,
-    price  integer                                                not null,
-    images character varying[]                                    not null
-);
-
-
-
-create table promotion
-(
-    id  serial primary key,
-    name        varchar(50)      not null,
-    pourcentage double precision not null
-);
-
-
-
-create table reservation
+create table rooms
 (
     id     serial primary key,
-    "startDate" date    not null,
-    "endDate"   date    not null,
+    type   integer not null,
+    price  double  not null,
+    images text[] not null,
+    manager_id integer not null references "users" (id),
+);
+
+
+
+create table promotions
+(
+    id          serial primary key,
+    name        varchar(50)      not null,
+    percentage double not null,
+    room_type      integer[] not null,
+);
+
+
+
+create table reservations
+(
+    id          serial primary key,
+    startDate date    not null,
+    endDate   date    not null,
     total       integer not null,
-    user_id     integer not null  references "user"  on update cascade on delete cascade,
-    room_id     integer not null references room
+    user_id     integer not null references users on update cascade on delete cascade,
+    room_id     integer not null references rooms on update cascade on delete cascade,
+    promotion_id integer references promotions on update cascade on delete cascade,
 );
 
 
@@ -42,6 +46,13 @@ create table reservation
 create table extra
 (
     id    serial primary key,
-    name  varchar(50) not null,
+    name  varchar(255) not null,
     price integer     not null
+);
+
+create table reservation_extra
+(
+    reservation_id integer not null references reservations on update cascade on delete cascade,
+    extra_id       integer not null references extra on update cascade on delete cascade,
+    primary key (reservation_id, extra_id)
 );
