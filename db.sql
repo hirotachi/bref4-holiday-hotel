@@ -43,14 +43,14 @@ create table reservations
 
 
 
-create table extra
+create table extras
 (
     id    serial primary key,
     name  varchar(255) not null,
     price integer     not null
 );
 
-create table reservation_extra
+create table reservations_extras
 (
     reservation_id integer not null references reservations on update cascade on delete cascade,
     extra_id       integer not null references extra on update cascade on delete cascade,
