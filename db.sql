@@ -56,4 +56,3 @@ create table reservations_extras
     extra_id       integer not null references extra on update cascade on delete cascade,
     primary key (reservation_id, extra_id)
 );
-
