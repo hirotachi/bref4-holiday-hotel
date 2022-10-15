@@ -41,12 +41,19 @@ public class DaoManager<T> {
         return find(fields, values, null, -1, -1);
     }
 
+    public T[] find() {
+        return find(null, null, null, -1, -1);
+    }
+
     public T[] find(String[] fields, Object[] values, String operator, int limit, int offset) {
-        StringBuilder query = new StringBuilder("SELECT * FROM " + tableName + " WHERE ");
-        for (int i = 0; i < fields.length; i++) {
-            query.append(fields[i]).append(" = ?");
-            if (i < fields.length - 1) {
-                query.append(" ").append(operator).append(" ");
+        StringBuilder query = new StringBuilder("SELECT * FROM " + tableName);
+        if (fields != null && values != null) {
+            query.append(" WHERE ");
+            for (int i = 0; i < fields.length; i++) {
+                query.append(fields[i]).append(" = ?");
+                if (i < fields.length - 1) {
+                    query.append(" ").append(operator).append(" ");
+                }
             }
         }
         if (limit != -1) {
@@ -59,8 +66,10 @@ public class DaoManager<T> {
 
         try {
             PreparedStatement statement = Connection.getPreparedStatement(query.toString());
-            for (int i = 0; i < values.length; i++) {
-                statement.setObject(i + 1, values[i]);
+            if (fields != null && values != null) {
+                for (int i = 0; i < fields.length; i++) {
+                    statement.setObject(i + 1, values[i]);
+                }
             }
             ResultSet resultSet = statement.executeQuery();
             return TableUtils.fromResultSetArray(type, resultSet);
