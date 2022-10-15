@@ -51,6 +51,11 @@ public class DaoManager<T> {
         return find(fields, values, "OR", limit, offset);
     }
 
+    public T findByPrimary(Object value) {
+        T[] result = findByAnd(new String[]{primaryKeyField}, new Object[]{value}, 1, 0);
+        return result != null && result.length > 0 ? result[0] : null;
+    }
+
     public T[] findAll(String[] fields, Object[] values) {
         return find(fields, values, null, -1, -1);
     }
@@ -169,8 +174,34 @@ public class DaoManager<T> {
         }
     }
 
-
-    public T findByPrimary(Object value) {
-        return findByAnd(new String[]{primaryKeyField}, new Object[]{value}, 1, 0)[0];
+    public boolean delete(T t) {
+        StringBuilder query = new StringBuilder("DELETE FROM " + tableName + " WHERE " + primaryKeyField + " = ?");
+        try {
+            PreparedStatement statement = Connection.getPreparedStatement(query.toString());
+            statement.setObject(1, TableUtils.getPrimaryKeyValue(t));
+            statement.execute();
+            return true;
+        } catch (SQLException e) {
+            System.out.println("Error while executing statement query: " + query);
+            e.printStackTrace();
+            return false;
+        }
     }
+
+//    todo: uncomment this when tables have the deleted_at column
+//    public boolean softDelete(T t) {
+//        StringBuilder query = new StringBuilder("UPDATE " + tableName + " SET deleted_at = ? WHERE " + primaryKeyField + " = ?");
+//        try {
+//            PreparedStatement statement = Connection.getPreparedStatement(query.toString());
+//            statement.setObject(1, new Date());
+//            statement.setObject(2, TableUtils.getPrimaryKeyValue(t));
+//            statement.execute();
+//            return true;
+//        } catch (SQLException e) {
+//            System.out.println("Error while executing statement query: " + query);
+//            e.printStackTrace();
+//            return false;
+//        }
+//    }
+
 }
