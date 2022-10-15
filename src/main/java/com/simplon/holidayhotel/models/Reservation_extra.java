@@ -21,6 +21,6 @@ public class Reservation_extra {
         this.extra_id = extra_id;
     }
 
-    Reservation_extra() {
+    public Reservation_extra() {
     }
 }

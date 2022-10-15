@@ -32,7 +32,7 @@ public class Extra {
         this.price = price;
     }
 
-    Extra() {
+    public Extra() {
     }
 
 }

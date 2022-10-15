@@ -33,7 +33,7 @@ public class User {
         this.role = role;
     }
 
-    User() {
+    public User() {
     }
 
 

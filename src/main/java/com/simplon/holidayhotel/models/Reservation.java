@@ -42,7 +42,7 @@ public class Reservation {
         this.promotion_id = promotion_id;
     }
 
-    Reservation() {
+    public Reservation() {
     }
 
 

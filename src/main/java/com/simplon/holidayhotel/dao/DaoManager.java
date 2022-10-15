@@ -52,12 +52,12 @@ public class DaoManager<T> {
     }
 
     public T[] find() {
-        return find(null, null, null, -1, -1);
+        return findByOr(new String[]{}, new String[]{}, -1, -1);
     }
 
     public T[] find(String[] fields, Object[] values, String operator, int limit, int offset) {
         StringBuilder query = new StringBuilder("SELECT * FROM " + tableName);
-        if (fields != null && values != null) {
+        if (fields != null && fields.length > 0 && values != null && values.length > 0) {
             query.append(" WHERE ");
             for (int i = 0; i < fields.length; i++) {
                 query.append(fields[i]).append(" = ?");

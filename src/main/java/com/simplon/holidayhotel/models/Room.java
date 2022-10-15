@@ -33,7 +33,7 @@ public class Room {
         this.manager_id = manager_id;
     }
 
-    Room() {
+    public Room() {
     }
 
 

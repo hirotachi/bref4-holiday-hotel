@@ -32,6 +32,6 @@ public class Promotion {
         this.room_type = room_type;
     }
 
-    Promotion() {
+    public Promotion() {
     }
 }
