@@ -9,9 +9,11 @@ import java.lang.reflect.Field;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.HashMap;
 
 public class DaoManager<T> {
 
+    private static HashMap<String, DaoManager<?>> instances = new HashMap<>();
     private static boolean showQueryLog = true;
     private final String tableName;
     private final Class<T> type;
@@ -27,8 +29,10 @@ public class DaoManager<T> {
     public static <T> DaoManager<T> create(Class<T> clazz) {
         Table table = clazz.getAnnotation(Table.class);
         String name = table.tableName();
-        String primaryKeyField = table.primaryKey();
-        return new DaoManager<>(name, clazz, primaryKeyField);
+        if (!instances.containsKey(name)) {
+            instances.put(name, new DaoManager<>(name, clazz, table.primaryKey()));
+        }
+        return (DaoManager<T>) instances.get(name);
     }
 
     public static boolean showQueryLog() {
