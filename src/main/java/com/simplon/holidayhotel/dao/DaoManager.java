@@ -166,4 +166,7 @@ public class DaoManager<T> {
     }
 
 
+    public T findByPrimary(Object value) {
+        return findByAnd(new String[]{primaryKeyField}, new Object[]{value}, 1, 0)[0];
+    }
 }
