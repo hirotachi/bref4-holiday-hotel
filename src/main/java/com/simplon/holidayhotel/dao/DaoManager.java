@@ -115,8 +115,10 @@ public class DaoManager<T> {
             PreparedStatement statement = Connection.getPreparedStatement(query.toString());
             for (int i = 0; i < columns.length; i++) {
                 Field column = columns[i];
+                column.setAccessible(true);
                 Object value = column.get(t);
                 statement.setObject(i + 1, value);
+                column.setAccessible(false);
             }
             ResultSet resultSet = statement.executeQuery();
 
@@ -146,8 +148,10 @@ public class DaoManager<T> {
             PreparedStatement statement = Connection.getPreparedStatement(query.toString());
             for (int i = 0; i < columns.length; i++) {
                 Field column = columns[i];
+                column.setAccessible(true);
                 Object value = column.get(t);
                 statement.setObject(i + 1, value);
+                column.setAccessible(false);
             }
             statement.setObject(columns.length + 1, TableUtils.getPrimaryKeyValue(t));
             ResultSet resultSet = statement.executeQuery();

@@ -94,12 +94,11 @@ public class TableUtils {
         return primaryKeyValue;
     }
 
-    public static <T> Field[] getColumns(T type) {
-        Class<?> typeClass = type.getClass();
-        Field[] fields = typeClass.getDeclaredFields();
+    public static <T> Field[] getColumns(Class<T> type) {
+        Field[] fields = type.getDeclaredFields();
         ArrayList<Field> columns = new ArrayList<>();
         for (Field field : fields) {
-            if (field.getAnnotation(Column.class) == null || field.getName().equals(getPrimaryKeyField(typeClass))) {
+            if (field.getAnnotation(Column.class) == null || field.getName().equals(getPrimaryKeyField(type))) {
                 continue;
             }
             columns.add(field);
