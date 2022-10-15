@@ -13,7 +13,7 @@ import java.util.HashMap;
 
 public class DaoManager<T> {
 
-    private static HashMap<String, DaoManager<?>> instances = new HashMap<>();
+    private static final HashMap<String, DaoManager<?>> instances = new HashMap<>();
     private static boolean showQueryLog = true;
     private final String tableName;
     private final Class<T> type;
