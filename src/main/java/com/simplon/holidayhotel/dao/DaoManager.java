@@ -11,6 +11,8 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 public class DaoManager<T> {
+
+    private static boolean showQueryLog = true;
     private final String tableName;
     private final Class<T> type;
 
@@ -27,6 +29,14 @@ public class DaoManager<T> {
         String name = table.tableName();
         String primaryKeyField = table.primaryKey();
         return new DaoManager<>(name, clazz, primaryKeyField);
+    }
+
+    public static boolean showQueryLog() {
+        return showQueryLog;
+    }
+
+    public static void setShowQueryLog(boolean showQueryLog) {
+        DaoManager.showQueryLog = showQueryLog;
     }
 
     public T[] findByAnd(String[] fields, Object[] values, int limit, int offset) {
@@ -109,6 +119,7 @@ public class DaoManager<T> {
                 statement.setObject(i + 1, value);
             }
             ResultSet resultSet = statement.executeQuery();
+
             T result = TableUtils.fromResultSet(type, resultSet);
             Helper.copyProperties(result, t);
             return true;

@@ -57,7 +57,7 @@ public class JSON {
     }
 
     public static <T> String fromArray(T[] objects) {
-        if (objects.length == 0) return "";
+        if (objects == null || objects.length == 0) return "[]";
         StringBuilder json = new StringBuilder("[");
         for (T object : objects) {
             json.append(fromObject(object)).append(",");
