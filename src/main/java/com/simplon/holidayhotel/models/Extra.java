@@ -19,10 +19,10 @@ public class Extra {
     @Column
     protected String name;
     @Column
-    protected int price;
+    protected double price;
 
 
-    public Extra(int id, String name, int price) {
+    public Extra(int id, String name, double price) {
         this.id = id;
         this.name = name;
         this.price = price;

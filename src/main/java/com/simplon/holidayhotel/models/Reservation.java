@@ -24,7 +24,7 @@ public class Reservation {
     @Column
     protected Date endDate;
     @Column
-    protected int total;
+    protected double total;
     @Column
     protected int user_id;
     @Column
@@ -32,7 +32,7 @@ public class Reservation {
     @Column
     protected int promotion_id;
 
-    public Reservation(int id, Date startDate, Date endDate, int total, int user_id, int room_id, int promotion_id) {
+    public Reservation(int id, Date startDate, Date endDate, double total, int user_id, int room_id, int promotion_id) {
         this.id = id;
         this.startDate = startDate;
         this.endDate = endDate;
