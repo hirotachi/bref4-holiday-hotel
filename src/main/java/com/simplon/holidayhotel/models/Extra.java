@@ -2,7 +2,6 @@ package com.simplon.holidayhotel.models;
 
 
 import com.simplon.holidayhotel.annotation.Column;
-import com.simplon.holidayhotel.annotation.JSONField;
 import com.simplon.holidayhotel.annotation.Table;
 
 //create table extras (
@@ -14,15 +13,12 @@ import com.simplon.holidayhotel.annotation.Table;
 @Table(tableName = "extras")
 public class Extra {
     @Column
-    @JSONField
     protected int id;
 
 
     @Column
-    @JSONField
     protected String name;
     @Column
-    @JSONField
     protected int price;
 
 
