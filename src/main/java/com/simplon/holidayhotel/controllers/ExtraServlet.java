@@ -18,6 +18,7 @@ public class ExtraServlet extends HttpServlet {
 
     private final DaoManager<Extra> dao = DaoManager.create(Extra.class);
 
+    //    GET /extras
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         Extra[] extras = dao.find();
@@ -28,6 +29,7 @@ public class ExtraServlet extends HttpServlet {
         response.getWriter().println(JSON.stringify(map));
     }
 
+    //    POST /extras
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 //         get extra from request
@@ -48,6 +50,8 @@ public class ExtraServlet extends HttpServlet {
         response.getWriter().println(JSON.stringify(res));
     }
 
+
+    //    PUT /extras?id=1
     @Override
     protected void doPut(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         int id = Integer.parseInt(req.getParameter("id"));
@@ -74,6 +78,36 @@ public class ExtraServlet extends HttpServlet {
         } else {
             res.put("status", "error");
             res.put("message", "Extra not updated");
+            resp.setStatus(500);
+        }
+        resp.setHeader("Content-Type", "application/json");
+        resp.getWriter().println(JSON.stringify(res));
+    }
+
+    //    DELETE /extras?id=1
+    @Override
+    protected void doDelete(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        int id = Integer.parseInt(req.getParameter("id"));
+        if (id < 0) {
+            resp.setStatus(400);
+            resp.getWriter().println("Bad request");
+            return;
+        }
+        Extra extra = dao.findByPrimary(id);
+        if (extra == null) {
+            resp.setStatus(404);
+            resp.getWriter().println("Extra not found");
+            return;
+        }
+        boolean deleted = dao.delete(extra);
+        HashMap<String, Object> res = new HashMap<>();
+        if (deleted) {
+            res.put("status", "success");
+            res.put("message", "Extra deleted");
+            resp.setStatus(200);
+        } else {
+            res.put("status", "error");
+            res.put("message", "Extra not deleted");
             resp.setStatus(500);
         }
         resp.setHeader("Content-Type", "application/json");
