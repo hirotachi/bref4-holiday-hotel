@@ -33,7 +33,7 @@ abstract public class Connection {
     }
 
 
-    protected static PreparedStatement getPreparedStatement(String query) throws SQLException {
+    public static PreparedStatement getPreparedStatement(String query) throws SQLException {
         return Objects.requireNonNull(getConnection())
                       .prepareStatement(query, ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_READ_ONLY);
     }

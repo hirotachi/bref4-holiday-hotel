@@ -4,9 +4,7 @@ import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 
 @Retention(RetentionPolicy.RUNTIME)
-public @interface Table {
-    String tableName();
-
-    String primaryKey() default "id";
-
+public @interface Column {
+    String name() default "";
+    boolean isPrimaryKey() default false;
 }
