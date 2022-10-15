@@ -1,4 +1,4 @@
-package com.simplon.holidayhotel.models;
+package com.simplon.holidayhotel.dao;
 
 import com.simplon.holidayhotel.annotation.Table;
 import com.simplon.holidayhotel.config.Connection;
@@ -33,15 +33,15 @@ public class DaoManager<T> {
         return find(fields, values, "AND", limit, offset);
     }
 
-    public T[] findByOr(String[] fields, Object[] values, int limit, int offset){
+    public T[] findByOr(String[] fields, Object[] values, int limit, int offset) {
         return find(fields, values, "OR", limit, offset);
     }
 
-    public T[] findAll(String[] fields, Object[] values){
+    public T[] findAll(String[] fields, Object[] values) {
         return find(fields, values, null, -1, -1);
     }
 
-    public T[] find(String[] fields, Object[] values, String operator, int limit, int offset){
+    public T[] find(String[] fields, Object[] values, String operator, int limit, int offset) {
         StringBuilder query = new StringBuilder("SELECT * FROM " + tableName + " WHERE ");
         for (int i = 0; i < fields.length; i++) {
             query.append(fields[i]).append(" = ?");
@@ -49,11 +49,11 @@ public class DaoManager<T> {
                 query.append(" ").append(operator).append(" ");
             }
         }
-        if(limit != -1){
+        if (limit != -1) {
             query.append(" LIMIT ").append(limit);
         }
 
-        if(offset != -1){
+        if (offset != -1) {
             query.append(" OFFSET ").append(offset);
         }
 
@@ -74,10 +74,10 @@ public class DaoManager<T> {
 
     public boolean save(T t) {
         boolean isUpdate = TableUtils.getPrimaryKeyValue(t) != null;
-         return isUpdate ? update(t) : insert(t);
+        return isUpdate ? update(t) : insert(t);
     }
 
-    public boolean insert(T t){
+    public boolean insert(T t) {
         StringBuilder query = new StringBuilder("INSERT INTO " + tableName + " (");
         StringBuilder values = new StringBuilder("VALUES (");
         Field[] columns = TableUtils.getColumns(type);
@@ -110,7 +110,7 @@ public class DaoManager<T> {
         }
     }
 
-    public boolean update(T t){
+    public boolean update(T t) {
         StringBuilder query = new StringBuilder("UPDATE " + tableName + " SET ");
         Field[] columns = TableUtils.getColumns(type);
         for (int i = 0; i < columns.length; i++) {

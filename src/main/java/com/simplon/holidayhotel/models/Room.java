@@ -9,14 +9,20 @@ package com.simplon.holidayhotel.models;
 //    manager_id integer not null references "users" (id),
 //);
 
+import com.simplon.holidayhotel.annotation.Column;
 import com.simplon.holidayhotel.annotation.Table;
 
 @Table(tableName = "Rooms")
-public class Room extends Model {
+public class Room {
+    @Column
     protected int id;
+    @Column
     protected int type;
+    @Column
     protected double price;
+    @Column
     protected String[] images;
+    @Column
     protected int manager_id;
 
     public Room(int id, int type, double price, String[] images, int manager_id) {
@@ -27,8 +33,8 @@ public class Room extends Model {
         this.manager_id = manager_id;
     }
 
-
-
+    Room() {
+    }
 
 
 }

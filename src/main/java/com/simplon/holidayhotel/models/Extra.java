@@ -1,6 +1,7 @@
 package com.simplon.holidayhotel.models;
 
 
+import com.simplon.holidayhotel.annotation.Column;
 import com.simplon.holidayhotel.annotation.Table;
 
 //create table extras (
@@ -10,14 +11,22 @@ import com.simplon.holidayhotel.annotation.Table;
 //);
 
 @Table(tableName = "extras")
-public class Extra extends Model{
+public class Extra {
+    @Column
     protected int id;
+
+
+    @Column
     protected String name;
+    @Column
     protected int price;
 
     public Extra(int id, String name, int price) {
         this.id = id;
         this.name = name;
         this.price = price;
+    }
+
+    Extra() {
     }
 }

@@ -6,11 +6,14 @@ package com.simplon.holidayhotel.models;
 //    primary key (reservation_id, extra_id)
 //);
 
+import com.simplon.holidayhotel.annotation.Column;
 import com.simplon.holidayhotel.annotation.Table;
 
 @Table(tableName = "reservation_extras")
-public class Reservation_extra extends Model {
+public class Reservation_extra {
+    @Column
     protected int reservation_id;
+    @Column
     protected int extra_id;
 
     public Reservation_extra(int reservation_id, int extra_id) {
@@ -18,4 +21,6 @@ public class Reservation_extra extends Model {
         this.extra_id = extra_id;
     }
 
+    Reservation_extra() {
+    }
 }

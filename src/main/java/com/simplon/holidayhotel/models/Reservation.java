@@ -10,18 +10,26 @@ package com.simplon.holidayhotel.models;
 //    promotion_id integer references promotions on update cascade on delete cascade,
 //);
 
+import com.simplon.holidayhotel.annotation.Column;
 import com.simplon.holidayhotel.annotation.Table;
 
 import java.util.Date;
 
 @Table(tableName = "reservations")
-public class Reservation extends Model {
+public class Reservation {
+    @Column
     protected int id;
+    @Column
     protected Date startDate;
+    @Column
     protected Date endDate;
+    @Column
     protected int total;
+    @Column
     protected int user_id;
+    @Column
     protected int room_id;
+    @Column
     protected int promotion_id;
 
     public Reservation(int id, Date startDate, Date endDate, int total, int user_id, int room_id, int promotion_id) {
@@ -34,6 +42,8 @@ public class Reservation extends Model {
         this.promotion_id = promotion_id;
     }
 
+    Reservation() {
+    }
 
 
 }
