@@ -2,6 +2,7 @@ package com.simplon.holidayhotel.controllers;
 
 import com.simplon.holidayhotel.dao.DaoManager;
 import com.simplon.holidayhotel.models.Extra;
+import com.simplon.holidayhotel.utils.Helper;
 import com.simplon.holidayhotel.utils.JSON;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
@@ -29,6 +30,53 @@ public class ExtraServlet extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+//         get extra from request
+        Extra extra = JSON.parse(request.getReader(), Extra.class);
+        boolean saved = dao.save(extra);
+        HashMap<String, Object> res = new HashMap<>();
+        if (saved) {
+            res.put("status", "success");
+            res.put("message", "Extra saved");
+            res.put("extra", extra);
+            response.setStatus(201);
+        } else {
+            res.put("status", "error");
+            res.put("message", "Extra not saved");
+            response.setStatus(500);
+        }
+        response.setHeader("Content-Type", "application/json");
+        response.getWriter().println(JSON.stringify(res));
+    }
 
+    @Override
+    protected void doPut(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        int id = Integer.parseInt(req.getParameter("id"));
+        if (id < 0) {
+            resp.setStatus(400);
+            resp.getWriter().println("Bad request");
+            return;
+        }
+        Extra extra = dao.findByPrimary(id);
+        if (extra == null) {
+            resp.setStatus(404);
+            resp.getWriter().println("Extra not found");
+            return;
+        }
+        Extra extraFromRequest = JSON.parse(req.getReader(), Extra.class);
+        Helper.copyNonEmptyProperties(extraFromRequest, extra);
+        boolean updated = dao.save(extra);
+        HashMap<String, Object> res = new HashMap<>();
+        if (updated) {
+            res.put("status", "success");
+            res.put("message", "Extra updated");
+            res.put("extra", extra);
+            resp.setStatus(200);
+        } else {
+            res.put("status", "error");
+            res.put("message", "Extra not updated");
+            resp.setStatus(500);
+        }
+        resp.setHeader("Content-Type", "application/json");
+        resp.getWriter().println(JSON.stringify(res));
     }
 }
