@@ -45,11 +45,11 @@ public class DaoManager<T> {
     }
 
     public T[] findByAnd(String[] fields, Object[] values, int limit, int offset) {
-        return find(fields, values, "AND", limit, offset);
+        return find(fields, values, "AND", null, limit, offset);
     }
 
     public T[] findByOr(String[] fields, Object[] values, int limit, int offset) {
-        return find(fields, values, "OR", limit, offset);
+        return find(fields, values, "OR", null, limit, offset);
     }
 
     public T findByPrimary(Object value) {
@@ -58,19 +58,61 @@ public class DaoManager<T> {
     }
 
     public T[] findAll(String[] fields, Object[] values) {
-        return find(fields, values, null, -1, -1);
+        return find(fields, values, null, null, -1, -1);
     }
 
     public T[] find() {
         return findByOr(new String[]{}, new String[]{}, -1, -1);
     }
 
-    public T[] find(String[] fields, Object[] values, String operator, int limit, int offset) {
+    public T[] findByAndIn(String[] fields, Object[] values, int limit, int offset) {
+        return find(fields, values, "AND", "IN", limit, offset);
+    }
+
+    public T[] findByAndNotIn(String[] fields, Object[] values, int limit, int offset) {
+        return find(fields, values, "AND", "NOT IN", limit, offset);
+    }
+
+    public T[] findByOrIn(String[] fields, Object[] values, int limit, int offset) {
+        return find(fields, values, "OR", "IN", limit, offset);
+    }
+
+    public T[] findByOrNotIn(String[] fields, Object[] values, int limit, int offset) {
+        return find(fields, values, "OR", "NOT IN", limit, offset);
+    }
+
+    public T[] findByAndLike(String[] fields, Object[] values, int limit, int offset) {
+        return find(fields, values, "AND", "LIKE", limit, offset);
+    }
+
+    public T[] findByOrLike(String[] fields, Object[] values, int limit, int offset) {
+        return find(fields, values, "OR", "LIKE", limit, offset);
+    }
+
+    public T findByPrimaryIn(Object value) {
+        T[] result = findByAndIn(new String[]{primaryKeyField}, new Object[]{value}, 1, 0);
+        return result != null && result.length > 0 ? result[0] : null;
+    }
+
+
+    public T[] find(String[] fields, Object[] values, String operator, String compare, int limit, int offset) {
         StringBuilder query = new StringBuilder("SELECT * FROM " + tableName);
         if (fields != null && fields.length > 0 && values != null && values.length > 0) {
             query.append(" WHERE ");
             for (int i = 0; i < fields.length; i++) {
-                query.append(fields[i]).append(" = ?");
+                query.append(fields[i]).append(compare != null ? compare : " = ");
+                if (compare != null && compare.toLowerCase().contains("in")) {
+//                     get array value at field index and generate placeholders
+                    Object[] array = (Object[]) values[i];
+                    query.append("(");
+                    for (int j = 0; j < array.length; j++) {
+                        query.append("?,");
+                    }
+                    query.deleteCharAt(query.length() - 1);
+                    query.append(")");
+                } else {
+                    query.append("?");
+                }
                 if (i < fields.length - 1) {
                     query.append(" ").append(operator).append(" ");
                 }
@@ -87,8 +129,16 @@ public class DaoManager<T> {
         try {
             PreparedStatement statement = Connection.getPreparedStatement(query.toString());
             if (fields != null && values != null) {
+                int index = 1;
                 for (int i = 0; i < fields.length; i++) {
-                    statement.setObject(i + 1, values[i]);
+                    if (compare != null && compare.toLowerCase().contains("in")) {
+                        Object[] array = (Object[]) values[i];
+                        for (Object o : array) {
+                            statement.setObject(index++, o);
+                        }
+                    } else {
+                        statement.setObject(index++, values[i]);
+                    }
                 }
             }
             ResultSet resultSet = statement.executeQuery();
