@@ -105,7 +105,7 @@ public class DaoManager<T> {
 //                     get array value at field index and generate placeholders
                     Object[] array = (Object[]) values[i];
                     query.append("(");
-                    for (int j = 0; j < array.length; j++) {
+                    for (Object o : array) {
                         query.append("?,");
                     }
                     query.deleteCharAt(query.length() - 1);
