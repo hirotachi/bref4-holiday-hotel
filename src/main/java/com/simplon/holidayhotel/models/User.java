@@ -1,5 +1,10 @@
 package com.simplon.holidayhotel.models;
 
+
+import com.simplon.holidayhotel.annotation.Column;
+import com.simplon.holidayhotel.annotation.Table;
+
+
 //create table users (
 //    id       serial primary key not null,
 //    name     varchar(255)       not null,
@@ -7,18 +12,17 @@ package com.simplon.holidayhotel.models;
 //    email    varchar(255)       not null,
 //    role     integer default 1  not null
 //);
-
-import com.simplon.holidayhotel.annotation.Table;
-
-import java.sql.ResultSet;
-import java.sql.SQLException;
-
 @Table(tableName = "users")
-public class User extends Model {
+public class User {
+    @Column
     protected int id;
+    @Column
     protected String name;
+    @Column
     protected String password;
+    @Column
     protected String email;
+    @Column
     protected int role;
 
     public User(int id, String name, String password, String email, int role) {
@@ -29,26 +33,7 @@ public class User extends Model {
         this.role = role;
     }
 
-    public static User fromResultSet(ResultSet resultSet) {
-        if(resultSet == null) {
-            return null;
-        }
-        try {
-            return new User(
-                    resultSet.getInt("id"),
-                    resultSet.getString("name"),
-                    resultSet.getString("password"),
-                    resultSet.getString("email"),
-                    resultSet.getInt("role")
-            );
-        } catch(SQLException e) {
-            e.printStackTrace();
-            return null;
-        }
-    }
-
-    public static User getById(int id) {
-
+    public User() {
     }
 
 

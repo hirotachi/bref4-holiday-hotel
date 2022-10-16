@@ -1,5 +1,10 @@
 package com.simplon.holidayhotel.models;
 
+
+import com.simplon.holidayhotel.annotation.Column;
+import com.simplon.holidayhotel.annotation.Table;
+
+
 //create table promotions (
 //    id          serial primary key,
 //    name        varchar(50)      not null,
@@ -7,13 +12,17 @@ package com.simplon.holidayhotel.models;
 //    room_type      integer[] not null,
 //);
 
-import com.simplon.holidayhotel.annotation.Table;
-
 @Table(tableName = "promotions")
-public class Promotion extends Model {
+public class Promotion {
+
+    @Column
     protected int id;
+    @Column
     protected String name;
+    @Column
     protected double percentage;
+
+    @Column
     protected int[] room_type;
 
     public Promotion(int id, String name, double percentage, int[] room_type) {
@@ -21,5 +30,8 @@ public class Promotion extends Model {
         this.name = name;
         this.percentage = percentage;
         this.room_type = room_type;
+    }
+
+    public Promotion() {
     }
 }
