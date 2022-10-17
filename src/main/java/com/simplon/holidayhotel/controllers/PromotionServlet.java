@@ -1,7 +1,7 @@
 package com.simplon.holidayhotel.controllers;
 
 import com.simplon.holidayhotel.dao.DaoManager;
-import com.simplon.holidayhotel.models.Extra;
+import com.simplon.holidayhotel.models.Promotion;
 import com.simplon.holidayhotel.utils.Helper;
 import com.simplon.holidayhotel.utils.JSON;
 import jakarta.servlet.ServletException;
@@ -51,7 +51,6 @@ public class PromotionServlet extends HttpServlet {
             response.getWriter().println("Bad request");
         } else {
             Promotion promotion = JSON.parse(request.getReader(), Promotion.class);
-            promotion.setId(id);
             boolean updated = dao.update(promotion);
             HashMap<String, Object> res = new HashMap<>();
             if (updated) {
@@ -74,8 +73,10 @@ public class PromotionServlet extends HttpServlet {
         if (id < 0) {
             response.setStatus(400);
             response.getWriter().println("Bad request");
-        } else {
-            boolean deleted = dao.delete(id);
+        }
+        Promotion promotion = dao.findByPrimary(id);
+        if(promotion == null){
+            boolean deleted = dao.delete(promotion);
             HashMap<String, Object> res = new HashMap<>();
             if (deleted) {
                 res.put("status", "success");
