@@ -46,9 +46,9 @@
                                 <div class="col-md-6 mx-auto">
                                     <ul class="list-unstyled menu">
                                         <li class="active"><a href="#">Home</a></li>
-                                        <li><a href="manager-controller">Manager Dashboard</a></li>
                                         <li><a href="Login">Login</a></li>
                                         <li><a href="Register">Register</a></li>
+                                        <li><a href="manager-controller">Manager Dashboard</a></li>
                                     </ul>
                                 </div>
                             </div>

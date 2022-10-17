@@ -45,6 +45,9 @@
 <!-- BEGIN: Body-->
 <body class="vertical-layout vertical-menu-modern blank-page navbar-floating footer-static   menu-collapsed"
       data-open="click" data-menu="vertical-menu-modern" data-col="blank-page">
+
+<a href="home" class="btn m-0 p-0 position-absolute" style="top:40px; left:40px;">Back HOME</a>
+
 <!-- BEGIN: Content-->
 <div class="app-content content ">
     <div class="content-overlay"></div>
@@ -68,8 +71,7 @@
                     <!-- Login-->
                     <div class="d-flex col-lg-4 align-items-center auth-bg px-2 p-lg-5">
                         <div class="col-12 col-sm-8 col-md-6 col-lg-12 px-xl-2 mx-auto">
-                            <h2 class="card-title font-weight-bold mb-1">Welcome to Hottels! 👋</h2>
-                            <p class="card-text mb-2">Please sign-in to your account</p>
+                            <h2 class="card-title font-weight-bold mb-1">Welcome to 5 Hotels</h2>
                             <form class="auth-login-form mt-2" action="Login" method="POST">
                                 <div class="form-group">
                                     <label class="form-label" for="email">Email</label>
