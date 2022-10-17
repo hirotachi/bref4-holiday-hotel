@@ -1,31 +1,29 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <link rel="stylesheet" href="app-assets/css/bootstrap.css"></link>
-
-    <link rel="apple-touch-icon" href="app-assets/images/ico/apple-icon-120.png">
-    <link rel="shortcut icon" type="image/x-icon" href="app-assets/images/ico/favicon.ico">
+    <link rel="apple-touch-icon" href="${pageContext.request.contextPath}/app-assets/images/ico/apple-icon-120.png">
+    <link rel="shortcut icon" type="image/x-icon" href="${pageContext.request.contextPath}/app-assets/images/ico/favicon.ico">
     <!-- BEGIN: Vendor CSS-->
-    <link rel="stylesheet" type="text/css" href="app-assets/vendors/css/vendors.min.css">
-    <link rel="stylesheet" type="text/css" href="app-assets/vendors/css/tables/datatable/dataTables.bootstrap4.min.css">
-    <link rel="stylesheet" type="text/css" href="app-assets/vendors/css/tables/datatable/responsive.bootstrap4.min.css">
-    <link rel="stylesheet" type="text/css" href="app-assets/vendors/css/tables/datatable/buttons.bootstrap4.min.css">
+    <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/app-assets/vendors/css/vendors.min.css">
+    <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/app-assets/vendors/css/tables/datatable/dataTables.bootstrap4.min.css">
+    <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/app-assets/vendors/css/tables/datatable/responsive.bootstrap4.min.css">
+    <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/app-assets/vendors/css/tables/datatable/buttons.bootstrap4.min.css">
     <!-- END: Vendor CSS-->
     <!-- BEGIN: Theme CSS-->
-    <link rel="stylesheet" type="text/css" href="app-assets/css/bootstrap.css">
-    <link rel="stylesheet" type="text/css" href="app-assets/css/bootstrap-extended.css">
-    <link rel="stylesheet" type="text/css" href="app-assets/css/colors.css">
-    <link rel="stylesheet" type="text/css" href="app-assets/css/components.css">
-    <link rel="stylesheet" type="text/css" href="app-assets/css/themes/dark-layout.css">
-    <link rel="stylesheet" type="text/css" href="app-assets/css/themes/bordered-layout.css">
-    <link rel="stylesheet" type="text/css" href="app-assets/css/themes/semi-dark-layout.css">
+    <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/app-assets/css/bootstrap.css">
+    <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/app-assets/css/bootstrap-extended.css">
+    <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/app-assets/css/colors.css">
+    <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/app-assets/css/components.css">
+    <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/app-assets/css/themes/dark-layout.css">
+    <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/app-assets/css/themes/bordered-layout.css">
+    <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/app-assets/css/themes/semi-dark-layout.css">
     <!-- BEGIN: Page CSS-->
-    <link rel="stylesheet" type="text/css" href="app-assets/css/core/menu/menu-types/vertical-menu.css">
-    <link rel="stylesheet" type="text/css" href="app-assets/css/plugins/forms/form-validation.css">
-    <link rel="stylesheet" type="text/css" href="app-assets/css/pages/app-user.css">
+    <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/app-assets/css/core/menu/menu-types/vertical-menu.css">
+    <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/app-assets/css/plugins/forms/form-validation.css">
+    <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/app-assets/css/pages/app-user.css">
     <!-- END: Page CSS-->
     <!-- BEGIN: Custom CSS-->
-    <link rel="stylesheet" type="text/css" href="app-assets/assets/css/style.css">
+    <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/app-assets/assets/css/style.css">
     <!-- END: Custom CSS-->
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;1,400;1,500;1,600"
           rel="stylesheet">
@@ -56,11 +54,11 @@
                                                            aria-expanded="false">
                 <div class="user-nav d-sm-flex d-none"><span class="user-name font-weight-bolder">John Doe</span><span
                         class="user-status">Admin</span></div>
-                <span class="avatar"><img class="round" src="app-assets/images/portrait/small/avatar-s-11.jpg"
+                <span class="avatar"><img class="round" src="${pageContext.request.contextPath}/app-assets/images/portrait/small/avatar-s-11.jpg"
                                           alt="avatar" height="40" width="40"><span class="avatar-status-online"></span></span>
             </a>
                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdown-user"><a class="dropdown-item"
-                                                                                                  href="page-profile.html"><i
+                                                                                                  href="#"><i
                         class="mr-50" data-feather="user"></i> Profile</a>
                     <div class="dropdown-divider"></div>
                     <a class="dropdown-item" href="#"><i class="mr-50"
@@ -90,7 +88,7 @@
                                     <a href="javascript:void(0);">$48.9k</a>
                                 </h3>
                                 <a type="button" href="manager-controller?page=room-management" class="btn btn-primary">View Reservation</a>
-                                <img src="app-assets/images/illustration/badge.svg" class="congratulation-medal"
+                                <img src="${pageContext.request.contextPath}/app-assets/images/illustration/badge.svg" class="congratulation-medal"
                                      alt="Medal Pic"/>
                             </div>
                         </div>
@@ -265,9 +263,9 @@
     </div>
     <!-- BEGIN: Reservation-->
 
-    <div class="content-wrapper container-xxl card mt-4 p-0">
-        <div class="content-body">
-            <h1 class="p-3 mb-1">All Reservations</h1>
+    <div class="content-wrapper  container-xxl card my-2 p-0">
+        <div class="content-body overflow-auto">
+            <p class="pt-1 pl-1" style="font-size:25px;">All Reservations</p>
             <!-- table -->
             <section id="basic-datatable  overflow-auto">
                 <div class="row">
@@ -304,12 +302,17 @@
                                     <th>
                                         <p>SPA</p>
                                     </th>
-                                    <th>
-                                        <div class="d-flex flex-row align-items-center">
-                                            <button class="btn mr-2"><p class="text-danger">Delete</p></button>
-                                            <button class="btn"><p class="text-success">Update</p></button>
+                                    <td>
+                                        <div class="dropdown">
+                                            <button class="btn btn-sm btn-icon" type="button" id="dropdownMenuButton2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                +
+                                            </button>
+                                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton2">
+                                                <a class="dropdown-item" href="#"><i class="bx bxs-pencil mr-2"></i>Delete</a>
+                                                <a class="dropdown-item text-danger" href="#"><i class="bx bxs-trash mr-2"></i>Edit</a>
+                                            </div>
                                         </div>
-                                    </th>
+                                    </td>
                                 </tr>
                                 </tbody>
                             </table>
@@ -329,21 +332,21 @@
 
 
 <!-- BEGIN: Vendor JS-->
-<script src="app-assets/vendors/js/vendors.min.js"></script>
+<script src="${pageContext.request.contextPath}/app-assets/vendors/js/vendors.min.js"></script>
 <!-- BEGIN Vendor JS-->
 
 <!-- BEGIN: Page Vendor JS-->
-<script src="app-assets/vendors/js/charts/apexcharts.min.js"></script>
-<script src="app-assets/vendors/js/extensions/toastr.min.js"></script>
+<script src="${pageContext.request.contextPath}/app-assets/vendors/js/charts/apexcharts.min.js"></script>
+<script src="${pageContext.request.contextPath}/app-assets/vendors/js/extensions/toastr.min.js"></script>
 <!-- END: Page Vendor JS-->
 
 <!-- BEGIN: Theme JS-->
-<script src="app-assets/js/core/app-menu.js"></script>
-<script src="app-assets/js/core/app.js"></script>
+<script src="${pageContext.request.contextPath}/app-assets/js/core/app-menu.js"></script>
+<script src="${pageContext.request.contextPath}/app-assets/js/core/app.js"></script>
 <!-- END: Theme JS-->
 
 <!-- BEGIN: Page JS-->
-<script src="app-assets/js/scripts/pages/dashboard-ecommerce.js"></script>
+<script src="${pageContext.request.contextPath}/app-assets/js/scripts/pages/dashboard-ecommerce.js"></script>
 <!-- END: Page JS-->
 
 <script>

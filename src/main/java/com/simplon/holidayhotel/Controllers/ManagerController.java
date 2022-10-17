@@ -17,7 +17,7 @@ public class ManagerController extends HttpServlet {
             page = request.getParameter("page");
         }
         if (page == "") {
-            RequestDispatcher rd = request.getRequestDispatcher("ManagerDashboard.jsp");
+            RequestDispatcher rd = request.getRequestDispatcher("/dashboard/ManagerDashboard.jsp");
             rd.forward(request, response);
         } else if (page.equals("room-management")) {
             ArrayList rooms = new ArrayList();

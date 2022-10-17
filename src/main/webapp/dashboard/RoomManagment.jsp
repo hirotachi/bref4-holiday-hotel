@@ -3,7 +3,7 @@
 <head>
     <link rel="stylesheet" href="${pageContext.request.contextPath}/app-assets/css/bootstrap.css"></link>
 
-    <%--    Images--%>
+    <%-- Images --%>
     <link rel="apple-touch-icon" href="${pageContext.request.contextPath}/app-assets/images/ico/apple-icon-120.png">
     <link rel="shortcut icon" type="image/x-icon"
           href="${pageContext.request.contextPath}/app-assets/images/ico/favicon.ico">
@@ -18,6 +18,7 @@
     <link rel="stylesheet" type="text/css"
           href="${pageContext.request.contextPath}/app-assets/vendors/css/tables/datatable/buttons.bootstrap4.min.css">
     <!-- END: Vendor CSS-->
+
     <!-- BEGIN: Theme CSS-->
     <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/app-assets/css/bootstrap.css">
     <link rel="stylesheet" type="text/css"
@@ -67,7 +68,8 @@
                                                            aria-expanded="false">
                 <div class="user-nav d-sm-flex d-none"><span class="user-name font-weight-bolder">John Doe</span><span
                         class="user-status">Admin</span></div>
-                <span class="avatar"><img class="round" src="${pageContext.request.contextPath}/app-assets/images/portrait/small/avatar-s-11.jpg"
+                <span class="avatar"><img class="round"
+                                          src="${pageContext.request.contextPath}/app-assets/images/portrait/small/avatar-s-11.jpg"
                                           alt="avatar" height="40" width="40"><span class="avatar-status-online"></span></span>
             </a>
                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdown-user"><a class="dropdown-item"
@@ -91,7 +93,7 @@
     <div class="header-navbar-shadow"></div>
     <div class="content-wrapper container-xxl p-0">
         <div class="content-body">
-            <!-- Basic table -->
+            <!-- START : table -->
             <section id="basic-datatable  overflow-auto">
                 <div class="card-header border-bottom p-1">
 
@@ -107,7 +109,6 @@
                                 data-target="#promo-modal"><span>Add New Promo</span>
                         </button>
                     </div>
-
                 </div>
                 <div class="row">
                     <div class="col-12">
@@ -149,80 +150,172 @@
                     </div>
                 </div>
 
-                <!-- Modal to add new room -->
-                <div class="modal modal-slide-in fade" id="add-room-modals">
-                    <div class="modal-dialog sidebar-sm">
-                        <form class="add-new-record modal-content pt-0">
-                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">×</button>
-                            <div class="modal-header mb-1">
-                                <h5 class="modal-title" id="exampleModalLabel">New Room</h5>
-                            </div>
-                            <div class="modal-body flex-grow-1">
-                                <div class="form-group">
-                                    <label class="form-label" for="basic-icon-default-fullname">Room Type</label>
-                                    <input type="text" class="form-control dt-full-name"
-                                           id="basic-icon-default-fullname" placeholder="suit"
-                                           aria-label="John Doe"/>
-                                </div>
-                                <div class="form-group">
-                                    <label class="form-label" for="basic-icon-default-post">Price</label>
-                                    <input type="number" id="basic-icon-default-post" class="form-control dt-post"
-                                           placeholder="0.0$" aria-label="Web Developer"/>
-                                </div>
-                                <div class="form-group">
-                                    <label class="form-label" for="basic-icon-default-date">Start Date</label>
-                                    <input type="date" class="form-control dt-date" id="basic-icon-default-date"
-                                           placeholder="MM/DD/YYYY" aria-label="MM/DD/YYYY"/>
-                                </div>
-                                <button type="button" class="btn btn-primary data-submit mr-1">ADD</button>
-                                <button type="reset" class="btn btn-outline-secondary" data-dismiss="modal">Cancel
-                                </button>
-                            </div>
-                        </form>
-                    </div>
-                </div>
-
-                <!-- Modal to add new Promo -->
-                <div class="modal modal-slide-in fade" id="promo-modal">
-                    <div class="modal-dialog sidebar-sm">
-                        <form class="add-new-record modal-content pt-0">
-                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">×</button>
-                            <div class="modal-header mb-1">
-                                <h5 class="modal-title" id="exampleModalLabel">New Promo</h5>
-                            </div>
-                            <div class="modal-body flex-grow-1">
-                                <div class="form-group">
-                                    <label class="form-label" for="basic-icon-default-fullname">Promo Type</label>
-                                    <input type="text" class="form-control dt-full-name"
-                                           id="basic-icon-default-fullname" placeholder="suit"
-                                           aria-label="spa"/>
-                                </div>
-                                <div class="form-group">
-                                    <label class="form-label" for="basic-icon-default-post">Percentage</label>
-                                    <input type="number" id="basic-icon-default-post" class="form-control dt-post"
-                                           placeholder="20%" aria-label="Web Developer"/>
-                                </div>
-                                <div class="form-group">
-                                    <label class="form-label" for="basic-icon-default-date">Start Date</label>
-                                    <input type="date" class="form-control dt-date" id="basic-icon-default-date"
-                                           placeholder="MM/DD/YYYY" aria-label="MM/DD/YYYY"/>
-                                </div>
-                                <div class="form-group">
-                                    <label class="form-label" for="basic-icon-default-date">End Date</label>
-                                    <input type="date" class="form-control dt-date" id="basic-icon-default-date"
-                                           placeholder="MM/DD/YYYY" aria-label="MM/DD/YYYY"/>
-                                </div>
-                                <button type="button" class="btn btn-primary data-submit mr-1">ADD Promo</button>
-                                <button type="reset" class="btn btn-outline-secondary" data-dismiss="modal">Cancel
-                                </button>
-                            </div>
-                        </form>
-                    </div>
-                </div>
             </section>
-            <!--/ Basic table -->
+            <!--/ END : table -->
 
+            <!-- Modal to add new room -->
+            <div class="modal modal-slide-in fade" id="add-room-modals">
+                <div class="modal-dialog sidebar-sm">
+                    <form class="add-new-record modal-content pt-0">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">×</button>
+                        <div class="modal-header mb-1">
+                            <h5 class="modal-title" id="exampleModalLabel">New Room</h5>
+                        </div>
+                        <div class="modal-body flex-grow-1">
+                            <div class="form-group">
+                                <label class="form-label" for="basic-icon-default-fullname">Room Type</label>
+                                <input type="text" name="room_type" class="form-control dt-full-name"
+                                       id="basic-icon-default-fullname" placeholder="suit"
+                                       aria-label="John Doe"/>
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label" for="basic-icon-default-post">Price</label>
+                                <input type="number" name="price" id="basic-icon-default-post"
+                                       class="form-control dt-post"
+                                       placeholder="0.0$" aria-label="Web Developer"/>
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label" for="basic-icon-default-date">Creation Date</label>
+                                <input type="date" class="form-control dt-date" id="basic-icon-default-date"
+                                       placeholder="MM/DD/YYYY" aria-label="MM/DD/YYYY"/>
+                            </div>
+                            <section id="input-file-browser">
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <div class="card">
+                                            <div class="card-header">
+                                                <h4 class="card-title">Upload Images</h4>
+                                            </div>
+                                            <div class="card-body">
+                                                <div class="row">
+                                                    <div class="col-lg-12 col-md-12">
+                                                        <div class="form-group">
+                                                            <div class="custom-file">
+                                                                <input name="image1" type="file"
+                                                                       class="custom-file-input" id="image1"/>
+                                                                <label class="custom-file-label" for="customFile">Choose
+                                                                    file</label>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="card-body">
+                                                <div class="row">
+                                                    <div class="col-lg-12 col-md-12">
+                                                        <div class="form-group">
+                                                            <div class="custom-file">
+                                                                <input name="image2" type="file"
+                                                                       class="custom-file-input" id="image2"/>
+                                                                <label class="custom-file-label" for="customFile">Choose
+                                                                    file</label>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="card-body">
+                                                <div class="row">
+                                                    <div class="col-lg-12 col-md-12">
+                                                        <div class="form-group">
+                                                            <div class="custom-file">
+                                                                <input name="image3" type="file"
+                                                                       class="custom-file-input" id="image3"/>
+                                                                <label class="custom-file-label" for="customFile">Choose
+                                                                    file</label>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="card-body">
+                                                <div class="row">
+                                                    <div class="col-lg-12 col-md-12">
+                                                        <div class="form-group">
+                                                            <div class="custom-file">
+                                                                <input name="image4" type="file"
+                                                                       class="custom-file-input" id="image4"/>
+                                                                <label class="custom-file-label" for="customFile">Choose
+                                                                    file</label>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="card-body">
+                                                <div class="row">
+                                                    <div class="col-lg-12 col-md-12">
+                                                        <div class="form-group">
+                                                            <div class="custom-file">
+                                                                <input name="image5" type="file"
+                                                                       class="custom-file-input" id="image5"/>
+                                                                <label class="custom-file-label" for="customFile">Choose
+                                                                    file</label>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="card-body">
+                                                <div class="row">
+                                                    <div class="col-lg-12 col-md-12">
+                                                        <div class="form-group">
+                                                            <div class="custom-file">
+                                                                <input name="image6" type="file"
+                                                                       class="custom-file-input" id="image6"/>
+                                                                <label class="custom-file-label" for="customFile">Choose
+                                                                    file</label>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </section>
+                            <button type="button" class="btn btn-primary data-submit mr-1">ADD Room</button>
+                            <button type="reset" class="btn btn-outline-secondary" data-dismiss="modal">Cancel
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
 
+            <!-- Modal to add new Promo -->
+            <div class="modal modal-slide-in fade" id="promo-modal">
+                <div class="modal-dialog sidebar-sm">
+                    <form class="add-new-record modal-content pt-0">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">×</button>
+                        <div class="modal-header mb-1">
+                            <h5 class="modal-title" id="exampleModalLabel">New Promo</h5>
+                        </div>
+                        <div class="modal-body flex-grow-1">
+                            <div class="form-group">
+                                <label class="form-label" for="basic-icon-default-post">Percentage</label>
+                                <input type="number" name="percentage" id="basic-icon-default-post"
+                                       class="form-control dt-post"
+                                       placeholder="20%" aria-label="Web Developer"/>
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label" for="basic-icon-default-date">Start Date</label>
+                                <input type="date" name="start_date" class="form-control dt-date"
+                                       id="basic-icon-default-date"
+                                       placeholder="MM/DD/YYYY" aria-label="MM/DD/YYYY"/>
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label" for="basic-icon-default-date">End Date</label>
+                                <input type="date" name="end_date" class="form-control dt-date"
+                                       id="basic-icon-default-date"
+                                       placeholder="MM/DD/YYYY" aria-label="MM/DD/YYYY"/>
+                            </div>
+                            <button type="button" class="btn btn-primary data-submit mr-1">ADD Promo</button>
+                            <button type="reset" class="btn btn-outline-secondary" data-dismiss="modal">Cancel
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
         </div>
     </div>
 </div>
