@@ -35,6 +35,8 @@
 
     <!-- BEGIN: Custom CSS-->
     <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/app-assets/assets/css/style.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/app-assets/css/others/style.css">
+
     <!-- END: Custom CSS-->
     <title>Register</title>
 </head>
@@ -42,8 +44,41 @@
 
 <body class="vertical-layout vertical-menu-modern blank-page navbar-floating footer-static   menu-collapsed"
       data-open="click" data-menu="vertical-menu-modern" data-col="blank-page">
-<a href="home" class="btn m-0 p-0 position-absolute" style="top:40px; left:40px;">Back HOME</a>
+<header class="site-header js-site-header">
+    <div class="">
+        <div class="row align-items-center">
+            <div class="col-6 col-lg-4 site-logo " data-aos="fade"><a class="text-primary" href="home">Hotel</a></div>
+            <div class="col-6 col-lg-8">
 
+
+                <div class="site-menu-toggle js-site-menu-toggle text-black" data-aos="fade">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+                <!-- END menu-toggle -->
+
+                <div class="site-navbar js-site-navbar">
+                    <nav role="navigation">
+                        <div class="container">
+                            <div class="row full-height align-items-center">
+                                <div class="col-md-6 mx-auto">
+                                    <ul class="list-unstyled menu">
+                                        <li class="active"><a href="#">Home</a></li>
+                                        <li><a href="Login">Login</a></li>
+                                        <li><a href="Register">Register</a></li>
+                                        <li><a href="manager-controller">Manager Dashboard</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+<!-- END head -->
 <!-- BEGIN: Content-->
 <div class="app-content content ">
     <div class="content-overlay"></div>
@@ -126,6 +161,7 @@
 <script src="${pageContext.request.contextPath}/app-assets/js/core/app.js"></script>
 <!-- END: Theme JS-->
 
+<script src="${pageContext.request.contextPath}/app-assets/js/others/main.js"></script>
 <!-- BEGIN: Page JS-->
 <script src="${pageContext.request.contextPath}/app-assets/js/scripts/pages/page-auth-register.js"></script>
 <!-- END: Page JS-->

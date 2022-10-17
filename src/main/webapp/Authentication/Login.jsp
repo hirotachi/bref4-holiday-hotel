@@ -33,6 +33,9 @@
     <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/app-assets/css/pages/page-auth.css">
     <!-- END: Page CSS-->
 
+    <!-- Theme Style -->
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/app-assets/css/others/style.css">
+
     <!-- BEGIN: Custom CSS-->
     <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/app-assets/assets/css/style.css">
     <!-- END: Custom CSS-->
@@ -46,7 +49,41 @@
 <body class="vertical-layout vertical-menu-modern blank-page navbar-floating footer-static   menu-collapsed"
       data-open="click" data-menu="vertical-menu-modern" data-col="blank-page">
 
-<a href="home" class="btn m-0 p-0 position-absolute" style="top:40px; left:40px;">Back HOME</a>
+<header class="site-header js-site-header">
+    <div class="">
+        <div class="row align-items-center">
+            <div class="col-6 col-lg-4 site-logo " data-aos="fade"><a class="text-primary" href="home">Hotel</a></div>
+            <div class="col-6 col-lg-8">
+
+
+                <div class="site-menu-toggle js-site-menu-toggle text-black" data-aos="fade">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+                <!-- END menu-toggle -->
+
+                <div class="site-navbar js-site-navbar">
+                    <nav role="navigation">
+                        <div class="container">
+                            <div class="row full-height align-items-center">
+                                <div class="col-md-6 mx-auto">
+                                    <ul class="list-unstyled menu">
+                                        <li class="active"><a href="#">Home</a></li>
+                                        <li><a href="Login">Login</a></li>
+                                        <li><a href="Register">Register</a></li>
+                                        <li><a href="manager-controller">Manager Dashboard</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+<!-- END head -->
 
 <!-- BEGIN: Content-->
 <div class="app-content content ">
@@ -117,19 +154,18 @@
 <!-- BEGIN: Vendor JS-->
 <script src="${pageContext.request.contextPath}/app-assets/vendors/js/vendors.min.js"></script>
 <!-- BEGIN Vendor JS-->
-
 <!-- BEGIN: Page Vendor JS-->
 <script src="${pageContext.request.contextPath}/app-assets/vendors/js/forms/validation/jquery.validate.min.js"></script>
 <!-- END: Page Vendor JS-->
-
 <!-- BEGIN: Theme JS-->
 <script src="${pageContext.request.contextPath}/app-assets/js/core/app-menu.js"></script>
 <script src="${pageContext.request.contextPath}/app-assets/js/core/app.js"></script>
 <!-- END: Theme JS-->
-
 <!-- BEGIN: Page JS-->
 <script src="${pageContext.request.contextPath}/app-assets/js/scripts/pages/page-auth-login.js"></script>
 <!-- END: Page JS-->
+
+<script src="${pageContext.request.contextPath}/app-assets/js/others/main.js"></script>
 
 <script>
     $(window).on('load', function () {
