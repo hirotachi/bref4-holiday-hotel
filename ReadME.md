@@ -1,6 +1,7 @@
 # Guideline
 ## Version control
-For EVERYONE working with the New_UI repository)
+For EVERYONE:
+
 1. Clone and deploy the project into your local machine.
 2. Take tasks from Jira
 3. Each member opens a new branch for the work he is working on.
