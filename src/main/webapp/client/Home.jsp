@@ -355,15 +355,11 @@
 <script src="${pageContext.request.contextPath}/app-assets/js/others/owl.carousel.min.js"></script>
 <script src="${pageContext.request.contextPath}/app-assets/js/others/jquery.stellar.min.js"></script>
 <script src="${pageContext.request.contextPath}/app-assets/js/others/jquery.fancybox.min.js"></script>
-
-
 <script src="${pageContext.request.contextPath}/app-assets/js/others/aos.js"></script>
-
 <script src="${pageContext.request.contextPath}/app-assets/js/others/bootstrap-datepicker.js"></script>
 <script src="${pageContext.request.contextPath}/app-assets/js/others/jquery.timepicker.min.js"></script>
-
-
 <script src="${pageContext.request.contextPath}/app-assets/js/others/main.js"></script>
+
 </body>
 </body>
 </html>
