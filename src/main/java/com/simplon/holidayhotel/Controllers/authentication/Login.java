@@ -7,7 +7,7 @@ import jakarta.servlet.annotation.*;
 import java.io.IOException;
 import java.io.PrintWriter;
 
-@WebServlet(name = "Login", value = "/Login")
+@WebServlet(name = "Login", value = "/login")
 public class Login extends HttpServlet {
     String message;
     public void init() {
