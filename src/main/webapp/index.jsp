@@ -2,12 +2,9 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>JSP - Hello World</title>
+    <link rel="stylesheet" href="app-assets/css/bootstrap.css"></link>
+    <title>HOME</title>
 </head>
-<body>
-<h1><%= "Hello World!" %>
-</h1>
-<br/>
-<a href="hello-servlet">Hello Servlet</a>
-</body>
+<%--<% response.sendRedirect("/bref4_holiday_hotel_war_exploded/manager-controller"); %>--%>
+<% response.sendRedirect("/bref4_holiday_hotel_war_exploded/home"); %>
 </html>
