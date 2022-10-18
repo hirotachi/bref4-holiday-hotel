@@ -32,7 +32,6 @@ abstract public class Connection {
         return connection;
     }
 
-
     public static PreparedStatement getPreparedStatement(String query) throws SQLException {
         if (DaoManager.showQueryLog()) System.out.println("\u001B[34mDATABASE QUERY:\u001B[0m " + query + ";");
 

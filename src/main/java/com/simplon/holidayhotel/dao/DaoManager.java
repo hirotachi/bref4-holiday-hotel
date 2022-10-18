@@ -9,6 +9,7 @@ import java.lang.reflect.Field;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.Date;
 import java.util.HashMap;
 
 public class DaoManager<T> {
@@ -239,19 +240,19 @@ public class DaoManager<T> {
     }
 
 //    todo: uncomment this when tables have the deleted_at column
-//    public boolean softDelete(T t) {
-//        StringBuilder query = new StringBuilder("UPDATE " + tableName + " SET deleted_at = ? WHERE " + primaryKeyField + " = ?");
-//        try {
-//            PreparedStatement statement = Connection.getPreparedStatement(query.toString());
-//            statement.setObject(1, new Date());
-//            statement.setObject(2, TableUtils.getPrimaryKeyValue(t));
-//            statement.execute();
-//            return true;
-//        } catch (SQLException e) {
-//            System.out.println("Error while executing statement query: " + query);
-//            e.printStackTrace();
-//            return false;
-//        }
-//    }
+    public boolean softDelete(T t) {
+        StringBuilder query = new StringBuilder("UPDATE " + tableName + " SET deleted_at = ? WHERE " + primaryKeyField + " = ?");
+        try {
+            PreparedStatement statement = Connection.getPreparedStatement(query.toString());
+            statement.setObject(1, new Date());
+            statement.setObject(2, TableUtils.getPrimaryKeyValue(t));
+            statement.execute();
+            return true;
+        } catch (SQLException e) {
+            System.out.println("Error while executing statement query: " + query);
+            e.printStackTrace();
+            return false;
+        }
+    }
 
 }

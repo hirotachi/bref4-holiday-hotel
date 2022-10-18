@@ -99,7 +99,7 @@ public class ExtraServlet extends HttpServlet {
             resp.getWriter().println("Extra not found");
             return;
         }
-        boolean deleted = dao.delete(extra);
+        boolean deleted = dao.softDelete(extra);
         HashMap<String, Object> res = new HashMap<>();
         if (deleted) {
             res.put("status", "success");
