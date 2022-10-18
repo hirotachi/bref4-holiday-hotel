@@ -69,7 +69,7 @@ public class ReservationServlet extends HttpServlet {
             response.setStatus(404);
             return;
         }
-        boolean deleted = dao.delete(reservation);
+        boolean deleted = dao.softDelete(reservation);
         if (deleted) {
             res.put("status", "success");
             res.put("message", "Reservation deleted");
