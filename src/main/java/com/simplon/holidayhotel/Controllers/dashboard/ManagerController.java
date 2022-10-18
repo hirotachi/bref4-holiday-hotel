@@ -8,7 +8,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
 
-@WebServlet(name = "ManagerController", value = "/manager-controller")
+@WebServlet(name = "ManagerController", value = "/dashboard")
 public class ManagerController extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

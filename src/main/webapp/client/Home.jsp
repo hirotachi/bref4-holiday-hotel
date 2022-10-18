@@ -1,10 +1,3 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: PC
-  Date: 10/16/2022
-  Time: 4:14 PM
-  To change this template use File | Settings | File Templates.
---%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
@@ -46,9 +39,9 @@
                                 <div class="col-md-6 mx-auto">
                                     <ul class="list-unstyled menu">
                                         <li class="active"><a href="#">Home</a></li>
-                                        <li><a href="Login">Login</a></li>
-                                        <li><a href="Register">Register</a></li>
-                                        <li><a href="manager-controller">Manager Dashboard</a></li>
+                                        <li><a href="login">Login</a></li>
+                                        <li><a href="register">Register</a></li>
+                                        <li><a href="dashboard">Manager Dashboard</a></li>
                                     </ul>
                                 </div>
                             </div>

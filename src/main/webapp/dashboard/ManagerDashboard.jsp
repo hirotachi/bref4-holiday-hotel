@@ -42,7 +42,7 @@
                                                           data-toggle="tooltip" data-placement="top"
                                                           title="home">Home</a></li>
                 <li class="nav-item d-none d-lg-block"><a class="nav-link"
-                                                          href="manager-controller?page=room-management"
+                                                          href="dashboard?page=room-management"
                                                           data-toggle="tooltip" data-placement="top"
                                                           title="Chat">Rooms</a></li>
             </ul>
