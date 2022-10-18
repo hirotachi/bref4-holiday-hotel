@@ -63,7 +63,7 @@
                     <div class="dropdown-divider"></div>
                     <a class="dropdown-item" href="#"><i class="mr-50"
                                                          data-feather="settings"></i> Settings</a><a
-                            class="dropdown-item" href="Login"><i class="mr-50"
+                            class="dropdown-item" href="login"><i class="mr-50"
                                                                   data-feather="power"></i> Logout</a>
                 </div>
             </li>

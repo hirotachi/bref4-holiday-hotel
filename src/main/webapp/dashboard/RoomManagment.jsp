@@ -52,11 +52,11 @@
     <div class="navbar-container d-flex content">
         <div class="bookmark-wrapper d-flex align-items-center">
             <ul class="nav navbar-nav bookmark-icons">
-                <li class="nav-item d-none d-lg-block"><a class="nav-link" href="manager-controller"
+                <li class="nav-item d-none d-lg-block"><a class="nav-link" href="dashboard"
                                                           data-toggle="tooltip" data-placement="top"
                                                           title="home">Home</a></li>
                 <li class="nav-item d-none d-lg-block"><a class="nav-link"
-                                                          href="manager-controller?page=room-management"
+                                                          href="dashboard?page=room-management"
                                                           data-toggle="tooltip" data-placement="top"
                                                           title="Chat">Rooms</a></li>
             </ul>
@@ -78,7 +78,7 @@
                     <div class="dropdown-divider"></div>
                     <a class="dropdown-item" href="#"><i class="mr-50"
                                                          data-feather="settings"></i> Settings</a><a
-                            class="dropdown-item" href="Login"><i class="mr-50"
+                            class="dropdown-item" href="login"><i class="mr-50"
                                                                   data-feather="power"></i> Logout</a>
                 </div>
             </li>
