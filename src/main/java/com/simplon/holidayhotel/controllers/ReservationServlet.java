@@ -22,8 +22,18 @@ public class ReservationServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         Reservation[] reservations = dao.find();
-        response.addHeader("Content-Type", "application/json");
-        response.getWriter().println(JSON.stringify(reservations));
+        if(request.getHeader("Content-Type").equals("application/json")){
+            response.addHeader("Content-Type", "application/json");
+            HashMap<String, Object> map = new HashMap<String, Object>();
+            map.put("reservations", reservations);
+            map.put("count", reservations.length);
+            response.getWriter().println(JSON.stringify(map));
+        }else{
+            request.setAttribute("reservations", reservations);
+            request.setAttribute("count", reservations.length);
+            RequestDispatcher requestDispatcher = request.getRequestDispatcher("/Reservation.jsp");
+            requestDispatcher.forward(request, response);
+        }
 
     }
 
