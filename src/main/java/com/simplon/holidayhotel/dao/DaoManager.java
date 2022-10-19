@@ -58,7 +58,7 @@ public class DaoManager<T> {
     }
 
     public T[] findAll(String[] fields, Object[] values) {
-        return find(fields, values, null, null, -1, -1);
+        return find(fields, values, null, "AND", -1, -1);
     }
 
     public T[] find() {
