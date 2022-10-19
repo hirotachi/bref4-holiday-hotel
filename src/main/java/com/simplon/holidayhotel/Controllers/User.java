@@ -1,4 +1,4 @@
-package com.simplon.holidayhotel.Controllers;
+package com.simplon.holidayhotel.controllers;
 
 import jakarta.servlet.*;
 import jakarta.servlet.http.*;
