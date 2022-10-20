@@ -45,7 +45,7 @@ public class TableUtils {
         int size = 0;
         try {
             if (resultSet == null || !resultSet.next()) {
-                return null;
+                return new ArrayList<T>().toArray((T[]) Array.newInstance(type, 0));
             }
             resultSet.last();
             size = resultSet.getRow();
