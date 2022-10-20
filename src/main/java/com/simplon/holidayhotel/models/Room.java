@@ -12,7 +12,7 @@ package com.simplon.holidayhotel.models;
 import com.simplon.holidayhotel.annotation.Column;
 import com.simplon.holidayhotel.annotation.Table;
 
-@Table(tableName = "Rooms")
+@Table(tableName = "rooms")
 public class Room {
     @Column
     protected int id;
