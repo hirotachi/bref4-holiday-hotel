@@ -19,6 +19,7 @@ public class ReservationServlet extends HttpServlet {
 
     private final DaoManager<Reservation> dao = DaoManager.create(Reservation.class);
 
+
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         Reservation[] reservations = dao.find();
@@ -48,18 +49,36 @@ public class ReservationServlet extends HttpServlet {
             response.setStatus(500);
             response.getWriter().println("Reservation not saved");
         }
+        response.setHeader("Content-Type", "application/json");
+        response.getWriter().println(JSON.stringify(reservation));
     }
 
     @Override
     protected void doPut(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        Reservation reservation = JSON.parse(request.getReader(), Reservation.class);
-        boolean updated = dao.update(reservation);
-        if (updated) {
-            response.setStatus(200);
-            response.getWriter().println("Reservation updated");
+        int id = Integer.parseInt(request.getParameter("id"));
+        if (id < 0) {
+            response.setStatus(400);
+            response.getWriter().println("Bad request");
         } else {
-            response.setStatus(500);
-            response.getWriter().println("Reservation not updated");
+            Reservation reservation = dao.findByPrimary(id);
+                if(reservation == null){
+                    response.setStatus(404);
+                    response.getWriter().println("Reservation not found");
+                    return;
+                }
+                Reservation reservationUpdated = JSON.parse(request.getReader(), Reservation.class);
+                Helper.copyProperties(reservationUpdated, reservation);
+                boolean updated = dao.update(reservation);
+                if(updated) {
+                    response.setStatus(200);
+                    response.getWriter().println("Reservation updated");
+                }else{
+                    response.setStatus(500);
+                    response.getWriter().println("Reservation not updated");
+                }
+                response.setHeader("Content-Type", "application/json");
+                response.getWriter().println(JSON.stringify(reservation));
+
         }
     }
 
