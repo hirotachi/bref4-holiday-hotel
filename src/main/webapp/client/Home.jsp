@@ -2,8 +2,7 @@
 <html>
 <head>
 
-    <link rel="stylesheet" type="text/css"
-          href="//fonts.googleapis.com/css?family=|Roboto+Sans:400,700|Playfair+Display:400,700">
+    <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=|Roboto+Sans:400,700|Playfair+Display:400,700">
 
     <link rel="stylesheet" href="${pageContext.request.contextPath}/app-assets/css/bootstrap.min.css">
     <link rel="stylesheet" href="${pageContext.request.contextPath}/app-assets/css/others/animate.css">
@@ -41,7 +40,9 @@
                                         <li class="active"><a href="#">Home</a></li>
                                         <li><a href="login">Login</a></li>
                                         <li><a href="register">Register</a></li>
-                                        <li><a href="dashboard">Manager Dashboard</a></li>
+<%--                                        <% String userEmail = (String) session.getAttribute("userDetails"); %>--%>
+<%--                                        <% if(userEmail != null) { %>--%>
+<%--                                        <li><a href="dashboard">Manager Dashboard</a></li><% } %>--%>
                                     </ul>
                                 </div>
                             </div>

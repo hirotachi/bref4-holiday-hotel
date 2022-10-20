@@ -1,11 +1,11 @@
-package com.simplon.holidayhotel.Controllers.authentication;
+package com.simplon.holidayhotel.controllers.authentication;
 
+import com.simplon.holidayhotel.models.User;
 import jakarta.servlet.*;
 import jakarta.servlet.http.*;
 import jakarta.servlet.annotation.*;
 
 import java.io.IOException;
-import java.io.PrintWriter;
 
 @WebServlet(name = "Login", value = "/login")
 public class Login extends HttpServlet {
@@ -16,6 +16,7 @@ public class Login extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
         RequestDispatcher requestDispatcher = request.getRequestDispatcher("/Authentication/Login.jsp");
         requestDispatcher.forward(request, response);
     }
@@ -24,6 +25,13 @@ public class Login extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String email = request.getParameter("email");
         String password = request.getParameter("password");
-        response.getWriter().println("<h1>Hello " + email + password + "!</h1>");
+        User user = new User(2, "Youness", "maska", "maska@gmail.com", 2);
+        HttpSession session = request.getSession();
+
+        if(user.getEmail().equals(email)) {
+            System.out.println("authentication success");
+            session.setAttribute("userDetails", user.getEmail());
+        }
+        response.sendRedirect("/home");
     }
 }

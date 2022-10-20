@@ -109,10 +109,10 @@
                     <div class="d-flex col-lg-4 align-items-center auth-bg px-2 p-lg-5">
                         <div class="col-12 col-sm-8 col-md-6 col-lg-12 px-xl-2 mx-auto">
                             <h2 class="card-title font-weight-bold mb-1">Welcome to 5 Hotels</h2>
-                            <form class="auth-login-form mt-2" action="Login" method="POST">
+                            <form class="auth-login-form mt-2" action="login" method="POST">
                                 <div class="form-group">
                                     <label class="form-label" for="email">Email</label>
-                                    <input class="form-control" id="email" type="text" name="email"
+                                    <input value="maska@gmail.com" class="form-control" id="email" type="text" name="email"
                                            placeholder="john@example.com" aria-describedby="login-email" autofocus=""
                                            tabindex="1"/>
                                 </div>
@@ -122,7 +122,7 @@
                                         Password?</small></a>
                                     </div>
                                     <div class="input-group input-group-merge form-password-toggle">
-                                        <input class="form-control form-control-merge" id="password" type="password"
+                                        <input value="maska@gmail" class="form-control form-control-merge" id="password" type="password"
                                                name="password" placeholder="············"
                                                aria-describedby="login-password" tabindex="2"/>
                                         <div class="input-group-append"><span class="input-group-text cursor-pointer"><i

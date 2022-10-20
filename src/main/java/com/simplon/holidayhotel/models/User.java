@@ -20,6 +20,11 @@ public class User {
     protected String name;
     @Column
     protected String password;
+
+    public String getEmail() {
+        return email;
+    }
+
     @Column
     protected String email;
     @Column

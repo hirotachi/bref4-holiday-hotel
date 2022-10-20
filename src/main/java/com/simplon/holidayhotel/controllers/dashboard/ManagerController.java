@@ -1,12 +1,12 @@
-package com.simplon.holidayhotel.Controllers.dashboard;
+package com.simplon.holidayhotel.controllers.dashboard;
 
+import com.simplon.holidayhotel.models.Room;
 import jakarta.servlet.*;
 import jakarta.servlet.http.*;
 import jakarta.servlet.annotation.*;
 
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.HashMap;
 
 @WebServlet(name = "ManagerController", value = "/dashboard")
 public class ManagerController extends HttpServlet {
