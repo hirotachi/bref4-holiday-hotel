@@ -34,4 +34,20 @@ public class Promotion {
 
     public Promotion() {
     }
+
+    public int getId() {
+        return id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public double getPercentage() {
+        return percentage;
+    }
+
+    public int[] getRoom_type() {
+        return room_type;
+    }
 }
