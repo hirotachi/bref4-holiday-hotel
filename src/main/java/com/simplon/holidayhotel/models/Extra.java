@@ -11,7 +11,7 @@ import com.simplon.holidayhotel.annotation.Table;
 //);
 
 @Table(tableName = "extras")
-public class Extra extends Model {
+public class Extra{
     @Column
     protected int id;
 
