@@ -20,16 +20,11 @@ public class PromotionsServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         Promotion[] promotions = dao.find();
-        if (response.getHeader("content-type").equals("application/json")) {
             response.addHeader("Content-Type", "application/json");
             HashMap<String, Object> map = new HashMap<String, Object>();
             map.put("promotions", promotions);
             map.put("count", promotions.length);
             response.getWriter().println(JSON.stringify(map));
-        } else {
-            request.setAttribute("promotions", promotions);
-            request.getRequestDispatcher("/WEB-INF/views/promotions/index.jsp").forward(request, response);
-        }
 
     }
 
