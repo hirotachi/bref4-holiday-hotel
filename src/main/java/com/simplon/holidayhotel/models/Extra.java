@@ -11,7 +11,7 @@ import com.simplon.holidayhotel.annotation.Table;
 //);
 
 @Table(tableName = "extras")
-public class Extra {
+public class Extra{
     @Column
     protected int id;
 
@@ -31,4 +31,15 @@ public class Extra {
     public Extra() {
     }
 
+    public String getName() {
+        return name;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public double getPrice() {
+        return price;
+    }
 }

@@ -21,6 +21,14 @@ public class Reservation_extra {
         this.extra_id = extra_id;
     }
 
+    public int getReservation_id() {
+        return reservation_id;
+    }
+
+    public int getExtra_id() {
+        return extra_id;
+    }
+
     public Reservation_extra() {
     }
 }

@@ -19,6 +19,7 @@ import java.util.Date;
 public class Reservation {
     @Column
     protected int id;
+
     @Column
     protected Date startDate;
     @Column
@@ -31,7 +32,6 @@ public class Reservation {
     protected int room_id;
     @Column
     protected int promotion_id;
-
     public Reservation(int id, Date startDate, Date endDate, double total, int user_id, int room_id, int promotion_id) {
         this.id = id;
         this.startDate = startDate;
@@ -46,4 +46,32 @@ public class Reservation {
     }
 
 
+
+    public int getId() {
+        return id;
+    }
+
+    public Date getStartDate() {
+        return startDate;
+    }
+
+    public Date getEndDate() {
+        return endDate;
+    }
+
+    public double getTotal() {
+        return total;
+    }
+
+    public int getUser_id() {
+        return user_id;
+    }
+
+    public int getRoom_id() {
+        return room_id;
+    }
+
+    public int getPromotion_id() {
+        return promotion_id;
+    }
 }

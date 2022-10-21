@@ -12,7 +12,7 @@ package com.simplon.holidayhotel.models;
 import com.simplon.holidayhotel.annotation.Column;
 import com.simplon.holidayhotel.annotation.Table;
 
-@Table(tableName = "Rooms")
+@Table(tableName = "rooms")
 public class Room {
     @Column
     protected int id;
@@ -22,6 +22,7 @@ public class Room {
     protected double price;
     @Column
     protected String[] images;
+
     @Column
     protected int manager_id;
 
@@ -34,6 +35,26 @@ public class Room {
     }
 
     public Room() {
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public int getType() {
+        return type;
+    }
+
+    public double getPrice() {
+        return price;
+    }
+
+    public String[] getImages() {
+        return images;
+    }
+
+    public int getManager_id() {
+        return manager_id;
     }
 
 
