@@ -14,8 +14,6 @@ import com.simplon.holidayhotel.annotation.Table;
 public class Extra{
     @Column
     protected int id;
-
-
     @Column
     protected String name;
     @Column

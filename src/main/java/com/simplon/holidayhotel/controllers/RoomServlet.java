@@ -30,7 +30,7 @@ public class RoomServlet extends HttpServlet {
             response.getWriter().println(map);
         } else {
             request.setAttribute("rooms", rooms);
-            request.getRequestDispatcher("/pages/rooms.jsp").forward(request, response);
+                request.getRequestDispatcher("/pages/rooms.jsp").forward(request, response);
         }
     }
 
@@ -50,7 +50,7 @@ public class RoomServlet extends HttpServlet {
             response.setStatus(500);
         }
         response.setHeader("Content-Type", "application/json");
-        response.getWriter().println(JSON.stringify(res));
+            response.getWriter().println(JSON.stringify(res));
     }
 
     @Override

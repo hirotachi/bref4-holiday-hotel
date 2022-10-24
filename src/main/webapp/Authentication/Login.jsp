@@ -33,9 +33,6 @@
     <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/app-assets/css/pages/page-auth.css">
     <!-- END: Page CSS-->
 
-    <!-- Theme Style -->
-    <link rel="stylesheet" href="${pageContext.request.contextPath}/app-assets/css/others/style.css">
-
     <!-- BEGIN: Custom CSS-->
     <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/app-assets/assets/css/style.css">
     <!-- END: Custom CSS-->
@@ -48,42 +45,6 @@
 <!-- BEGIN: Body-->
 <body class="vertical-layout vertical-menu-modern blank-page navbar-floating footer-static   menu-collapsed"
       data-open="click" data-menu="vertical-menu-modern" data-col="blank-page">
-
-<header class="site-header js-site-header">
-    <div class="">
-        <div class="row align-items-center">
-            <div class="col-6 col-lg-4 site-logo " data-aos="fade"><a class="text-primary" href="home">Hotel</a></div>
-            <div class="col-6 col-lg-8">
-
-
-                <div class="site-menu-toggle js-site-menu-toggle text-black" data-aos="fade">
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                </div>
-                <!-- END menu-toggle -->
-
-                <div class="site-navbar js-site-navbar">
-                    <nav role="navigation">
-                        <div class="container">
-                            <div class="row full-height align-items-center">
-                                <div class="col-md-6 mx-auto">
-                                    <ul class="list-unstyled menu">
-                                        <li class="active"><a href="#">Home</a></li>
-                                        <li><a href="Login">Login</a></li>
-                                        <li><a href="Register">Register</a></li>
-                                        <li><a href="manager-controller">Manager Dashboard</a></li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                    </nav>
-                </div>
-            </div>
-        </div>
-    </div>
-</header>
-<!-- END head -->
 
 <!-- BEGIN: Content-->
 <div class="app-content content ">
@@ -164,9 +125,6 @@
 <!-- BEGIN: Page JS-->
 <script src="${pageContext.request.contextPath}/app-assets/js/scripts/pages/page-auth-login.js"></script>
 <!-- END: Page JS-->
-
-<script src="${pageContext.request.contextPath}/app-assets/js/others/main.js"></script>
-
 <script>
     $(window).on('load', function () {
         if (feather) {
