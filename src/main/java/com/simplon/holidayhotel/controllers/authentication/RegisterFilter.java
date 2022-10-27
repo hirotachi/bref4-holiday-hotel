@@ -12,38 +12,38 @@ import java.io.IOException;
 public class RegisterFilter implements Filter {
 
     @Override
-    public void doFilter(ServletRequest servletRequest, ServletResponse servletResponse, FilterChain filterChain) throws IOException, ServletException {
-        HttpServletRequest httpServletRequest = (HttpServletRequest) servletRequest;
+    public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) throws IOException, ServletException {
+        HttpServletRequest httpServletRequest = (HttpServletRequest) request;
         String method = httpServletRequest.getMethod();
 
 
 
-        if(servletRequest.getParameter("full_name") == null) {
-            filterChain.doFilter(servletRequest, servletResponse);
+        if(request.getParameter("full_name") == null) {
+            chain.doFilter(request, response);
         } else {
             // verify the fields input
-            String full_name = servletRequest.getParameter("full_name");
-            String email = servletRequest.getParameter("email");
-            String password = servletRequest.getParameter("password");
+            String full_name = request.getParameter("full_name");
+            String email = request.getParameter("email");
+            String password = request.getParameter("password");
 
             // if the fields are empty
             if(full_name.isEmpty() || email.isEmpty() || password.isEmpty()) {
                 // redirect to the register page
                 // and display an error message
-                servletRequest.setAttribute("error_message", "Please fill all the fields");
-                servletRequest.setAttribute("full_name", full_name);
-                servletRequest.setAttribute("email", email);
-                RequestDispatcher requestDispatcher = servletRequest.getRequestDispatcher("/Authentication/Register.jsp");
-                requestDispatcher.forward(servletRequest, servletResponse);
+                request.setAttribute("error_message", "Please fill all the fields");
+                request.setAttribute("full_name", full_name);
+                request.setAttribute("email", email);
+                RequestDispatcher requestDispatcher = request.getRequestDispatcher("/Authentication/Register.jsp");
+                requestDispatcher.forward(request, response);
             } else {
                 // if the fields are not empty
                 // redirect to the home page
-                filterChain.doFilter(servletRequest, servletResponse);
+                chain.doFilter(request, response);
             }
 
 
 
-            filterChain.doFilter(servletRequest, servletResponse);
+            chain.doFilter(request, response);
         }
 
 
