@@ -68,18 +68,23 @@
                     <div class="d-flex col-lg-4 align-items-center auth-bg px-2 p-lg-5">
                         <div class="col-12 col-sm-8 col-md-6 col-lg-12 px-xl-2 mx-auto">
                             <h2 class="card-title font-weight-bold mb-1">Welcome to 5 Hotels</h2>
-                            <form class="auth-register-form mt-2" action="Register" method="POST">
+                            <c:if test="${not empty error_message}">
+                                <div class="alert text-center alert-danger" role="alert">
+                                    <p>${error_message}</p>
+                                </div>
+                            </c:if>
+                            <form class="auth-register-form mt-2" action="register" method="POST">
                                 <div class="form-group">
                                     <label class="form-label" for="register-username">Full name</label>
                                     <input class="form-control" id="register-username" type="text" name="full_name"
                                            placeholder="john doe" aria-describedby="register-username" autofocus=""
-                                           tabindex="1"/>
+                                           tabindex="1" value="${full_name}"/>
                                 </div>
                                 <div class="form-group">
                                     <label class="form-label" for="register-email">Email</label>
                                     <input class="form-control" id="register-email" type="text" name="email"
                                            placeholder="john@example.com" aria-describedby="register-email"
-                                           tabindex="2"/>
+                                           tabindex="2" value="${email}"/>
                                 </div>
                                 <div class="form-group">
                                     <label class="form-label" for="register-password">Password</label>

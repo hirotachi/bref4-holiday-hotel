@@ -25,5 +25,14 @@ public class Login extends HttpServlet {
         String email = request.getParameter("email");
         String password = request.getParameter("password");
         response.getWriter().println("<h1>Hello " + email + password + "!</h1>");
+
+
+
+        if(true) {
+            // after all the infos is correct
+            response.sendRedirect("/home");
+            HttpSession session = request.getSession();
+            session.setAttribute("email", email);
+        }
     }
 }

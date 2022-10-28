@@ -19,6 +19,10 @@ public class Register extends HttpServlet {
         String full_name = request.getParameter("full_name");
         String email = request.getParameter("email");
         String password = request.getParameter("password");
-        response.getWriter().println("<h1>Hello " + full_name +email + password + "!</h1>");
+        System.out.println("<h1>Hello " + full_name +email + password + "!</h1>");
+
+        request.setAttribute("register_message", "You have been registered successfully");
+        RequestDispatcher requestDispatcher = request.getRequestDispatcher("/Authentication/Login.jsp");
+        requestDispatcher.forward(request, response);
     }
 }
